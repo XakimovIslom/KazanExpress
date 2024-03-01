@@ -8,7 +8,8 @@ urlpatterns = [
     path('category/', views.CategoryListCreateAPIView.as_view()),
     path('category/<str:pk>/', views.CategoryRetrieveUpdateDeleteAPIView.as_view()),
 
-    path('shop/', views.ShopListCreateAPIView.as_view()),
+    # path('shop/', views.ShopListCreateAPIView.as_view()),
+    path('shop/', views.ShopListAPIView.as_view()),
     path('shop/<str:pk>/', views.ShopRetrieveUpdateDeleteAPIView.as_view()),
 
 ]

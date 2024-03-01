@@ -1,6 +1,7 @@
 """
 Base settings to build other settings files upon.
 """
+import os
 from pathlib import Path
 
 import environ
@@ -65,12 +66,15 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # "django.contrib.humanize", # Handy template tags
+    # 'jazzmin',
+    'django4_recaptcha_admin_login',
+    'captcha',
     "django.contrib.admin",
     "django.forms",
 ]
 THIRD_PARTY_APPS = [
-    "crispy_forms",
-    "crispy_bootstrap5",
+    # "crispy_forms",
+    # "crispy_bootstrap5",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
@@ -80,6 +84,7 @@ THIRD_PARTY_APPS = [
     "rest_framework.authtoken",
     "corsheaders",
     "drf_spectacular",
+
 ]
 
 LOCAL_APPS = [
@@ -137,6 +142,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
+    # 'store.middleware.TimeRestrictionMiddleware',
 ]
 
 # STATIC
@@ -316,6 +322,12 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.AllowAny",),
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    # 'DEFAULT_THROTTLE_CLASSES': [
+    #     'store.throttling.CustomHourlyThrottle',
+    # ],
+    # 'DEFAULT_THROTTLE_RATES': {
+    #     'anon': '1/minute',  # Adjust the rate limit as needed
+    # },
 }
 
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup
@@ -331,3 +343,6 @@ SPECTACULAR_SETTINGS = {
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
+# Recaptcha
+RECAPTCHA_PUBLIC_KEY = "6LeBaYYpAAAAAF6RyZMYyTo_fGhSdXM1A47iQ63a"
+RECAPTCHA_PRIVATE_KEY = "6LeBaYYpAAAAAJ1Rrn371uikZkJA01n44WkBnkrK"
