@@ -7,7 +7,7 @@ class CustomHourlyThrottle(AnonRateThrottle):
         current_time = datetime.now().time()
 
         start_time = time(18, 0)
-        end_time = time(20, 5)
+        end_time = time(20, 0)
 
         if not start_time <= current_time < end_time:
             return super().allow_request(request, view)
