@@ -28,7 +28,7 @@ class CategoryRetrieveUpdateDeleteAPIView(generics.RetrieveUpdateDestroyAPIView)
 #     queryset = Shop.objects.all()
 #     serializer_class = ShopSerializer
 #     # permission_classes = (IsShopAdminOrReadOnly,)
-#     # throttle_classes = (CustomHourlyThrottle,)
+#     throttle_classes = (CustomHourlyThrottle,)
 #
 #     filter_backends = [filters.SearchFilter]
 #     search_fields = ['title']

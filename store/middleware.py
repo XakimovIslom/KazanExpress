@@ -9,8 +9,8 @@ class TimeRestrictionMiddleware:
     def __call__(self, request):
         current_time = datetime.now().time()
 
-        start_time = time(18, 0)
-        end_time = time(20, 50)
+        start_time = time(12, 0)
+        end_time = time(13, 50)
 
         if not (start_time <= current_time < end_time):
             return HttpResponseForbidden(f"Access is allowed only between {start_time} and {end_time}.")
